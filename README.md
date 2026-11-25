@@ -1,6 +1,8 @@
+![Project Logo](basui_logo.png)
+
 # basui
 
-A small HTML-first static compiler written in Go. spf13/Cobra handles the CLI and Go's standard html/template package renders pages. The included two-screen BAS example uses plain JavaScript, local CSS and a sample JSON fixture. It runs offline once built.
+A small HTML-first static compiler CLI written in Go. The included two-screen example uses plain JavaScript, local CSS and a sample JSON fixture. It runs offline once built.
 
 ## Quick start
 
