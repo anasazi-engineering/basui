@@ -18,6 +18,14 @@ python3 -m http.server 8080 --bind 127.0.0.1 --directory example/dist
 
 Open http://127.0.0.1:8080/ and select AHU-1. The first Go dependency download needs network access. Python is just a convenient local preview server. Any static HTTP server can host the generated site.
 
+## Install
+
+After building the executable, you can copy it to a suitable bin directory, such as `/usr/local/bin`.
+
+```sh
+sudo cp basui /usr/local/bin/basui 
+```
+
 ## Usage
 
 
@@ -26,6 +34,7 @@ Open http://127.0.0.1:8080/ and select AHU-1. The first Go dependency download n
 
 **Available Commands:**
 &emsp;`build`       Compile layouts, pages and assets into the site's dist directory
+&emsp;`init`        Initialize a basui project in the current directory
 &emsp;`completion`  Generate the autocompletion script for the specified shell
 &emsp;`help`        Help about any command
 
@@ -35,6 +44,15 @@ Open http://127.0.0.1:8080/ and select AHU-1. The first Go dependency download n
 Use `basui [command] --help` for more information about a command.
 
 ### Example Usage
+Initialize a project in the current directory:
+
+```sh
+basui init
+basui build
+```
+
+`init` creates `layouts/`, `pages/`, `partials/`, and `assets/`, along with a minimal `layouts/base.html` and `pages/index.html`. Existing regular files are left unchanged, so the command can also fill in missing project files.
+
 Build the site from `site-directory` and write the generated pages and assets to its `dist` directory. If `site-directory` is omitted, the current directory is used.
 
 ```sh

@@ -8,6 +8,12 @@ import (
 )
 
 func main() {
+	if err := newRootCommand().Execute(); err != nil {
+		os.Exit(1)
+	}
+}
+
+func newRootCommand() *cobra.Command {
 	root := &cobra.Command{Use: "basui", Short: "Compile HTML-first operator screens", SilenceUsage: true}
 	build := &cobra.Command{
 		Use:   "build [site-directory]",
@@ -25,8 +31,18 @@ func main() {
 			return err
 		},
 	}
-	root.AddCommand(build)
-	if err := root.Execute(); err != nil {
-		os.Exit(1)
+	init := &cobra.Command{
+		Use:   "init",
+		Short: "Initialize a basui project in the current directory",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, args []string) error {
+			if err := initSite("."); err != nil {
+				return err
+			}
+			fmt.Fprintln(cmd.OutOrStdout(), "Initialized basui project in the current directory")
+			return nil
+		},
 	}
+	root.AddCommand(build, init)
+	return root
 }
