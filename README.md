@@ -1,6 +1,6 @@
 # basui
 
-A small HTML-first static compiler written in Go. Cobra handles the CLI and Go's standard html/template package renders pages. The included two-screen BAS example uses plain JavaScript, local CSS and a sample JSON fixture. It runs offline once built.
+A small HTML-first static compiler written in Go. spf13/Cobra handles the CLI and Go's standard html/template package renders pages. The included two-screen BAS example uses plain JavaScript, local CSS and a sample JSON fixture. It runs offline once built.
 
 ## Quick start
 
@@ -46,9 +46,3 @@ Call a partial with {{template "partials/nav.html" .}}. The example layout suppl
 ```
 
 .Root is the relative path prefix back to the site root (empty for top-level pages). Use it for site links and assets to support nested pages and deployment under a URL prefix. Paths inside CSS and ES module imports resolve relative to those files.
-
-## Connect your BAS
-
-Start with example/pages/device.html and example/assets/device.js. The HTML owns the point-table markup and its row template. The module reads the selected device ID and fills the table using textContent. Replace the fixture fetch and lookup with your Go API call when integrating. To use a Bootstrap admin theme, put its distribution files under assets/vendor/, load its styles and scripts in layouts/base.html, and use the theme's markup in layouts and partials. jQuery can be included the same way.
-
-The compiler is intended for builds before deployment. Template and asset errors leave the last successful build in place. Publication uses two renames when dist already exists, so a live server could briefly see the path disappear. Interrupted builds may leave a .basui-lock directory. After confirming no build is running, check for .basui-build-*/previous and restore it to dist if dist is absent, then remove the stale lock and rebuild.
