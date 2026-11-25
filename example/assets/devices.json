@@ -1,0 +1,5 @@
+[{"id":"ahu-1","name":"AHU-1 · North wing air handler","points":[
+  {"name":"Supply air temperature","value":55.2,"units":"°F"},
+  {"name":"Fan command","value":65,"units":"%"},
+  {"name":"Active alarms","value":0,"units":""}
+]}]

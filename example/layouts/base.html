@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{block "title" .}}BAS console{{end}}</title>
+  <link rel="stylesheet" href="{{.Root}}assets/site.css">
+</head>
+<body>
+  {{template "partials/nav.html" .}}
+  <main>{{template "content" .}}</main>
+  {{block "scripts" .}}{{end}}
+</body>
+</html>

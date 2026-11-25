@@ -1,0 +1,11 @@
+{{define "title"}}Device points · BAS console{{end}}
+{{define "content"}}
+  <h1 id="name">Device points</h1>
+  <p id="status" role="status">Loading sample readings…</p>
+  <table class="table">
+    <thead><tr><th>Point</th><th>Value</th><th>Units</th></tr></thead>
+    <tbody id="points"></tbody>
+  </table>
+  <template id="point-row"><tr><td></td><td></td><td></td></tr></template>
+{{end}}
+{{define "scripts"}}<script type="module" src="{{.Root}}assets/device.js"></script>{{end}}
